@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 export default function Hero() {
     return (
-        <section className="h-screen bg-primary flex items-center">
+        <section className="h-screen flex items-center">
         <div className="container mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-4xl md:text-6xl font-bold mb-2">Helina Belete</h1>
@@ -16,11 +18,14 @@ export default function Hero() {
           </a>
         </div>
         <div className="mt-6 md:mt-0">
-          <img
-            src="images/profile-image.png"
-            alt="Helina Belete"
-            className="rounded-lg shadow-md w-48 h-48 object-cover"
-          />
+        <Image
+  src="/images/profile-image.png"
+  width={200}
+  height={300}
+  alt="Helina Belete"
+  className="rounded-lg shadow-md object-cover"
+/>
+
         </div>
       </div>
       </section>

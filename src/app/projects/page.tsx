@@ -1,31 +1,43 @@
-import Layout from "../components/Layout";
+"use client";
 
-export default function Projects() {
-    const projects = [
-      {
-        title: 'Fraud Report Management System',
-        description: 'React-based system improving fraud detection by 40%',
-      },
-      {
-        title: 'HR Management System',
-        description: 'Built with Angular, increased engagement by 40%',
-      },
-    ];
-  
-    return (
-        <Layout>
-      <section id="projects" className="py-16 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-6">My Projects</h2>
-        <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-          {projects.map((project, index) => (
-            <div key={index} className="border rounded-lg p-4 hover:shadow-lg">
-              <h3 className="text-xl font-semibold">{project.title}</h3>
-              <p className="text-gray-600">{project.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-      </Layout>
-    );
-  }
-  
+import { useEffect } from "react";
+import Layout from "../components/Layout";
+import ProjectCard from "../components/ProjectCard";
+import { projectsData } from "../projects/projectsData";
+
+
+interface ProjectsProps {
+  useLayout?: boolean; // Add a prop to conditionally use Layout
+}
+
+export default function Projects({ useLayout = true }: ProjectsProps) {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".project-card");
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add("animate-fadeIn");
+      }, index * 100); // stagger animations
+    });
+  }, []);
+  const content = (
+    <section className="mt-12 px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
+      🚀 My Projects
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projectsData.map((project, index) => (
+        <ProjectCard
+          key={index}
+          title={project.title}
+          description={project.description}
+          imageUrl={project.imageUrl}
+          projectUrl={project.projectUrl}
+        />
+      ))}
+    </div>
+  </section>
+  );
+
+  // Conditionally wrap in Layout
+  return useLayout ? <Layout>{content}</Layout> : content;
+}
