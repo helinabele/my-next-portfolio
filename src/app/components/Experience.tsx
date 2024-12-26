@@ -7,7 +7,7 @@ export default function Experience() {
   ];
 
   return (
-    <section className="container mx-auto py-16 px-6 bg-gray-100">
+    <section id="experience" className="container mx-auto py-16 px-6 bg-gray-100">
       <h2 className="text-3xl font-bold mb-6">Experience</h2>
       {experiences.map((exp) => (
         <div

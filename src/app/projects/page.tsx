@@ -20,7 +20,7 @@ export default function Projects({ useLayout = true }: ProjectsProps) {
     });
   }, []);
   const content = (
-    <section className="mt-12 px-6">
+    <section id="projects" className="mt-12 px-6">
     <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
       🚀 My Projects
     </h2>

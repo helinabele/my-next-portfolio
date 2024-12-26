@@ -2,7 +2,7 @@ export const projectsData = [
     {
       title: "Fraud Report Management",
       description: "React-based fraud detection system improving accuracy by 40%",
-      imageUrl: "/images/fraud/Screenshot(27).png",
+      imageUrl: "/images/fraud/Screenshot (27).png",
       projectUrl: "https://example.com/fraud-report",
     },
     {
