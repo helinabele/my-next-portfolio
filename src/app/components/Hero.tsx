@@ -1,41 +1,50 @@
 import Image from "next/image";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
-    <section id="home" className="h-screen flex items-center bg-gradient-to-b from-blue-50 via-white to-gray-50">
-      <div className="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between" 
-       style= {{width: "fit-content"}}>
+    <section id="home" className={styles.hero}>
+      <div className={styles.container}>
         {/* Text Section */}
-        <div className="text-center md:text-left md:w-1/2">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4 leading-tight">
-            Hello, I'm Helina Belete 👋
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 font-medium mb-6">
-            Full-Stack Developer | Problem Solver | Portfolio Creator
+        <div className={styles.textSection}>
+          <p>
+            <span className={styles.waveEmoji} aria-hidden="true">
+              👋
+            </span>
           </p>
-          <p className="text-gray-500 max-w-lg mx-auto md:mx-0 mb-6 leading-relaxed">
-            I’m a passionate developer specializing in creating robust web
+
+          <h1 className={styles.heading}>
+            Hi there, I&apos;m <span className={styles.name}>Helina Belete</span>
+          </h1>
+          <p className={styles.subtitle}>Software Engineer</p>
+          <p className={styles.description}>
+            Result-Oriented Software Engineer building and managing web
             applications, user-friendly interfaces, and clean, maintainable
             codebases.
           </p>
           <a
-            href="#contact"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+            href="#projects"
+            className={styles.button}
+            aria-label="View Projects"
           >
-            Get in Touch
+            Projects
           </a>
         </div>
-        <div className="flex justify-center md:w-1/2 mb-8 md:mb-0">
-          <div className="relative w-48 h-64 md:w-64 md:h-80">
-            <Image
-              src="/images/profile-image.png"
-              alt="Helina Belete"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
+
+        {/* Image Section */}
+        <div className={styles.imageContainer}>
+  <Image
+    src="/images/profile-image.png"
+    alt="Helina Belete - Profile Picture"
+    fill
+    style={{ objectFit: "cover" }}
+    className={styles.profileImage}
+    priority
+    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+
+  />
+</div>
+
       </div>
     </section>
   );

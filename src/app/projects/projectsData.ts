@@ -2,19 +2,19 @@ export const projectsData = [
     {
       title: "Fraud Report Management",
       description: "React-based fraud detection system improving accuracy by 40%",
-      imageUrl: "/images/fraud/Screenshot (27).png",
+      imageUrl: "/images/fraud/fraud-investigation-report.png",
       projectUrl: "https://example.com/fraud-report",
     },
     {
       title: "HR Management System",
       description: "Built with Angular, improving engagement by 40%",
-      imageUrl: "/images/hr-system/hr-system-home.png",
-      projectUrl: "https://example.com/hr-system",
+      imageUrl: "/images/251hr/home.png",
+      projectUrl: "https://www.251hr.com/",
     },
     {
       title: "Cinema System",
       description: "Built with Angular, improving engagement by 40%",
-      imageUrl: "/images/cinema/cinema_home.png",
+      imageUrl: "/images/cinema/Home.png",
       projectUrl: "https://example.com/cinema-system",
     },
     {

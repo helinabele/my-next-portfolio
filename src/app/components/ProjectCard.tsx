@@ -14,29 +14,34 @@ export default function ProjectCard({
   projectUrl,
 }: ProjectCardProps) {
   return (
-    <div className="project-card border border-gray-200 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <div className="elative h-48 w-full">
-        {imageUrl && (
+    <div className="project-card border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      {/* Image Section */}
+      {imageUrl && (
+        <div className="relative h-48 w-full">
           <Image
             src={imageUrl}
-            alt={`${title}-image`}
-            layout="fill"
-            objectFit="cover"
-            className="transition-all duration-500 ease-in-out"
+            alt={`${title} image`}
+            fill
+            className="object-cover transition-transform duration-500"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           />
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Content Section */}
       <div className="p-4 bg-white">
-        <h3 className="text-2xl font-semibold mb-3 text-gray-700">{title}</h3>
-        <p className="text-sm text-gray-500 mb-4">{description}</p>
-        <a
-          href={projectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 font-semibold hover:text-blue-600"
-        >
-          Explore Project →
-        </a>
+        <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
+        <p className="text-sm text-gray-600 mb-4">{description}</p>
+        {projectUrl && (
+          <a
+            href={projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 font-medium hover:text-blue-600"
+          >
+            Explore Project →
+          </a>
+        )}
       </div>
     </div>
   );
