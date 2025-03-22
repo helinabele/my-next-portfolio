@@ -14,7 +14,7 @@ Open https://helinas.netlify.app with your browser to see the result.
 
 To learn more about ME, take a look at the following resources:
 
-- [Linkedin]([https://www.linkedin.com/in/helina-belete/]) 
+- [Linkedin] (https://www.linkedin.com/in/helina-belete/) 
 
 You can check out [My Repo](https://github.com/helinabele) 
 
