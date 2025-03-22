@@ -31,11 +31,11 @@ export const projectsData = [
       technologies: ["React", "TypeScript", "Node.js", "Express", "File Processing APIs"],
       githubUrl: "https://github.com/helinabele/excel-to-xml"
     },
-    {
+    /* {
       title: "Dynamic GIF Example Project",
       description: "React + GIF integration project",
       imageUrl: "/images/dynamic-gif/example.gif",
       projectUrl: "https://example.com/dynamic-gif",
-    },
+    }, */
   ];
   
