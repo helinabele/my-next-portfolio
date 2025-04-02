@@ -2,17 +2,26 @@
 
 import Footer from "./Footer";
 import "../styles/globals.css";
+import SkipLink from './SkipLink';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-[var(--bg-color)]">
-        <main className="flex-grow">
+      <SkipLink />
+      <div role="document">
+        <header role="banner">
+          {/* Your header content */}
+        </header>
+        <main id="main-content" role="main" tabIndex={-1}>
           {children}
         </main>
-        <div className="mt-auto">
+        <footer role="contentinfo">
           <Footer />
-        </div>
+        </footer>
       </div>
     </>
   );

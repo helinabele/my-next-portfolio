@@ -4,9 +4,12 @@ import styles from "./Hero.module.css";
 import { useEffect, useRef } from "react";
 import animations from "../styles/animations.module.css";
 import Image from "next/image";
+import { TypeAnimation } from 'react-type-animation';
+import { FaChevronDown } from 'react-icons/fa';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,8 +27,20 @@ export default function Hero() {
       observer.observe(sectionRef.current);
     }
 
+    // Add scroll indicator animation
+    if (scrollIndicatorRef.current) {
+      scrollIndicatorRef.current.classList.add(animations.bounce);
+    }
+
     return () => observer.disconnect();
   }, []);
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section ref={sectionRef} className={styles.hero}>
@@ -34,7 +49,20 @@ export default function Hero() {
           <div className={styles.textContent}>
             <h1 className={styles.greeting}>Hi, my name is</h1>
             <h2 className={styles.name}>Helina Belete.</h2>
-            <h3 className={styles.tagline}>I build exceptional digital experiences.</h3>
+            <h3 className={styles.tagline}>
+              <TypeAnimation
+                sequence={[
+                  'I build exceptional digital experiences.',
+                  2000,
+                  'I create beautiful web applications.',
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="text-[var(--accent)]"
+              />
+            </h3>
             
             <p className={styles.description}>
               I&apos;m a software engineer specializing in building (and occasionally designing) 
@@ -67,6 +95,16 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div 
+        ref={scrollIndicatorRef}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        onClick={scrollToProjects}
+        aria-label="Scroll to projects"
+      >
+        <FaChevronDown className="text-[var(--accent)] text-2xl animate-bounce" />
       </div>
     </section>
   );
